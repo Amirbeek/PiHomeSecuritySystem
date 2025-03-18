@@ -10,7 +10,7 @@ load_dotenv()
 
 # Global Variables
 time_motion_started = time.time()
-last_time_photo_taken = 0  
+last_time_photo_taken = 0
 MOVEMENT_DETECTED_THRESHOLD = 5.0
 MIN_DURATION_BETWEEN_PHOTOS = 30.0
 CAMERA_FOLDER_PATH = "./src/images_fl"
