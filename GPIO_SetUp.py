@@ -26,6 +26,12 @@ time.sleep(2)
 print("Camera set up Okay!")
 
 
+def take_photo(camera, folder_path):
+    file_name = folder_path + "/img_" + str(time.time()) + ".jpg"
+    camera.take_photo(file_name)
+    return file_name
+
+
 def motion_detected():
     global time_motion_started
     print("Starting timer")
@@ -41,6 +47,8 @@ def motion_finished():
     if motion_duration > MOVEMENT_DETECTED_TRESHOLD:
         if time.time() - last_time_photo_taken > MIN_DURATION_BETWEEN_PHOTOS:
             last_time_photo_taken = time.time()
+            print("Photo is taken And sent to Email!")
+            photo_file_name = take_photo(camera, CAMERA_FOLDER_PATH)
 
 
 pir.when_motion = motion_detected
