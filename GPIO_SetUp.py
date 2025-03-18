@@ -15,7 +15,7 @@ MOVEMENT_DETECTED_TRESHOLD = 5.0
 MIN_DURATION_BETWEEN_PHOTOS = 30.0
 CAMERA_FOLDER_PATH = "./src/images_fl"
 if not os.path.exists(CAMERA_FOLDER_PATH):
-    os.mkdir(CAMERA_FOLDER_PATH)
+    os.makedirs(CAMERA_FOLDER_PATH)
 print("GPIOs setup Done!")
 
 # Set up Camera
