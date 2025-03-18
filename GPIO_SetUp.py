@@ -20,7 +20,7 @@ print("GPIOs setup Done!")
 
 # Set up Camera
 camera = Camera()
-camera.still_size(1536, 864)
+camera.still_size = (1536, 864)
 camera.flip_camera(vflip=True, hflip=True)
 time.sleep(2)
 print("Camera set up Okay!")
