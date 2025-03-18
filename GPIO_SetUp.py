@@ -3,20 +3,29 @@ from picamzero import Camera
 from signal import pause
 import time
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Global Variables
 time_motion_started = time.time()
 last_time_photo_taken = 0
-
-# Set up GPIO
-pir = MotionSensor(4)
-led = LED(17)
 MOVEMENT_DETECTED_TRESHOLD = 5.0
 MIN_DURATION_BETWEEN_PHOTOS = 30.0
 CAMERA_FOLDER_PATH = "./src/images_fl"
+LOG_FILE_NAME = CAMERA_FOLDER_PATH + "photo_logs.txt"
+password = os.getenv()
+# Set up GPIO
+pir = MotionSensor(4)
+led = LED(17)
+
 if not os.path.exists(CAMERA_FOLDER_PATH):
     os.makedirs(CAMERA_FOLDER_PATH)
 print("GPIOs setup Done!")
+
+# Remove log file
+if os.path.exists(LOG_FILE_NAME):
+    os.remove(LOG_FILE_NAME)
+    print("Previous file is removed")
 
 # Set up Camera
 camera = Camera()
@@ -30,6 +39,12 @@ def take_photo(camera, folder_path):
     file_name = folder_path + "/img_" + str(time.time()) + ".jpg"
     camera.take_photo(file_name)
     return file_name
+
+
+def update_photo_log_file(log_file_name, file_name):
+    with open(log_file_name, "a") as f:
+        f.write(file_name)
+        f.write("\n")
 
 
 def motion_detected():
@@ -49,6 +64,7 @@ def motion_finished():
             last_time_photo_taken = time.time()
             print("Photo is taken And sent to Email!")
             photo_file_name = take_photo(camera, CAMERA_FOLDER_PATH)
+            update_photo_log_file(log_file_name=LOG_FILE_NAME, file_name=photo_file_name)
 
 
 pir.when_motion = motion_detected
