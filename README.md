@@ -46,10 +46,11 @@ Navigate to the project directory and run:
 ```
 
 ## Project Documentation Images
-- ![Early stage setup on the breadboard](https://github.com/Amirbeek/PiHomeSecuritySystem/tree/main/progress_images/1.jpg)
-- ![Detailed connections of sensors and camera](https://github.com/Amirbeek/PiHomeSecuritySystem/tree/main/progress_images/2.jpg)
-- ![Integration of the Raspberry Pi with sensors and camera](https://github.com/Amirbeek/PiHomeSecuritySystem/tree/main/progress_images/3.png)
-- ![The HC-SR505 motion sensor in action](https://github.com/Amirbeek/PiHomeSecuritySystem/tree/main/progress_images/motion.png)
+- ![Early stage setup on the breadboard](https://raw.githubusercontent.com/Amirbeek/PiHomeSecuritySystem/main/progress_images/1.jpg)
+- ![Detailed connections of sensors and camera](https://raw.githubusercontent.com/Amirbeek/PiHomeSecuritySystem/main/progress_images/2.jpg)
+- ![Integration of the Raspberry Pi with sensors and camera](https://raw.githubusercontent.com/Amirbeek/PiHomeSecuritySystem/main/progress_images/3.png)
+- ![The HC-SR505 motion sensor in action](https://raw.githubusercontent.com/Amirbeek/PiHomeSecuritySystem/main/progress_images/motion.png)
+
 
 ## Improvements
 - **Enhance Live Streaming**: Implement adaptive bitrate streaming for better performance under varying network conditions.
