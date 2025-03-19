@@ -24,25 +24,25 @@ PiHomeSecuritySystem is an advanced Raspberry Pi-based security system that leve
 
 ## Setup
 1. **Install Dependencies**:
-   ```bash
+ ```bash
    pip install Flask gpiozero picamera yagmail python-dotenv
 ```
 2. **Clone the Repository**:
 ```
-git clone https://github.com/Amirbeek/PiHomeSecuritySystem.git
+   git clone https://github.com/Amirbeek/PiHomeSecuritySystem.git
 ```
 
 3. **Set Environment Variables: Create a .env file in your project root with the following keys**:
 ```
-MAIN_EMAIL=your-email@example.com
-RECEIVER_EMAIL=receiver-email@example.com
-MAIL_PASSWORD=your-email-password
+   MAIN_EMAIL=your-email@example.com
+   RECEIVER_EMAIL=receiver-email@example.com
+   MAIL_PASSWORD=your-email-password
 ```
 
 ## Running the Project
 Navigate to the project directory and run:
 ```
-python app.py
+   python server.js
 ```
 
 ## Project Documentation Images
