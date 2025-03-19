@@ -13,7 +13,7 @@ time_motion_started = time.time()
 last_time_photo_taken = 0
 MOVEMENT_DETECTED_THRESHOLD = 5.0
 MIN_DURATION_BETWEEN_PHOTOS = 30.0
-CAMERA_FOLDER_PATH = "./src/images_fl"
+CAMERA_FOLDER_PATH = "/home/pi/Desktop/Lesson_Tasks/GitProject/PiHomeSecuritySystem/src/images_fl"
 LOG_FILE_NAME = os.path.join(CAMERA_FOLDER_PATH, "photo_logs.txt")
 SENDER_MAIL = os.getenv('MAIN_EMAIL')
 RECEIVER_EMAIL = os.getenv('RECEIVER_EMAIL')
@@ -67,6 +67,8 @@ def motion_finished():
     motion_duration = time.time() - time_motion_started
     print(motion_duration)
     if motion_duration > MOVEMENT_DETECTED_THRESHOLD:
+        print("In Progress")
+
         if time.time() - last_time_photo_taken > MIN_DURATION_BETWEEN_PHOTOS:
             last_time_photo_taken = time.time()
             print("Photo is taken And sent to Email!")
@@ -78,3 +80,4 @@ pir.when_motion = motion_detected
 pir.when_no_motion = motion_finished
 print("Everything is set up")
 pause()
+
