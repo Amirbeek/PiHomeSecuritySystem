@@ -1,0 +1,16 @@
+pip~=25.0.1
+attrs~=24.2.0
+build~=1.2.2.post1
+wheel~=0.45.1
+lxml~=5.3.1
+pillow~=11.0.0
+tornado~=6.4.2
+jinja2~=3.1.4
+keyring~=25.6.0
+setuptools~=75.8.0
+flask~=2.3.3
+yagmail~=0.15.293
+tensorflow~=2.18.0
+numpy~=1.26.0
+gpiozero~=2.0.1
+python-dotenv~=1.0.1
