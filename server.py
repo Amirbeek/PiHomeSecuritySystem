@@ -1,11 +1,9 @@
 from flask import Flask, send_from_directory
 import os
 
-# Path to the folder containing images
 CAMERA_FOLDER_PATH = "/home/pi/Desktop/Lesson_Tasks/GitProject/PiHomeSecuritySystem/src/images_fl"
 LOG_FILE_NAME = "/home/pi/Desktop/Lesson_Tasks/GitProject/PiHomeSecuritySystem/src/images_fl/photo_logs.txt"
 
-# Flask app setup to serve images from the given folder
 app = Flask(__name__, static_url_path=CAMERA_FOLDER_PATH, static_folder=CAMERA_FOLDER_PATH)
 
 previous_line_counter = 0
@@ -40,7 +38,6 @@ def check_photos():
         return "No Photo Available"
 
 
-# Serve the image directly from the images folder
 @app.route('/images/<filename>')
 def send_photo(filename):
     return send_from_directory(CAMERA_FOLDER_PATH, filename)
