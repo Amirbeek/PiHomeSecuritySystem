@@ -46,7 +46,7 @@ if os.path.exists(LOG_FILE_NAME):
 
 # Set up Camera
 camera = Camera()
-camera.still_size = (1536, 864)
+camera.still_size = (640, 480)
 camera.flip_camera(vflip=True, hflip=True)
 time.sleep(2)
 print("Camera set up Okay!")
@@ -72,9 +72,16 @@ def take_photo(camera, folder_path):
 
 def preprocess_image(image_path):
     img = Image.open(image_path).convert('RGB')
-    img = img.resize((224, 224))
-    img = np.array(img).astype(np.float32) / 255.0
-    img = np.expand_dims(img, axis=0)
+    img = img.resize((224, 224))  # Make sure this matches the input size the model expects
+    img = np.array(img).astype(np.float32)
+
+    # Normalize the image (if model was trained with values in the range [0, 1] or [-1, 1])
+    img = img / 255.0  # If model expects values between 0 and 1
+
+    # If your model expects [-1, 1] normalization, use this instead:
+    # img = (img / 127.5) - 1.0
+
+    img = np.expand_dims(img, axis=0)  # Add batch dimension
     return img
 
 
@@ -82,7 +89,7 @@ def send_photo_by_email(yagmail_client, file_name):
     yagmail_client.send(
         to=RECEIVER_EMAIL,
         subject='New Photo From Your House',
-        contents="Check out the new photo 📷",
+        contents="Check out the new photo ð·",
         attachments=file_name
     )
 
@@ -117,6 +124,8 @@ def motion_finished():
             interpreter.set_tensor(input_details[0]['index'], input_data)
             interpreter.invoke()
             output_data = interpreter.get_tensor(output_details[0]['index'])
+
+            print("Raw Output Data:", output_data)  # Debugging the model output
             predicted_class = np.argmax(output_data)
             prediction_label = class_labels[predicted_class]
             print(f"Model Prediction: {prediction_label}")
