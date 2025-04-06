@@ -22,6 +22,9 @@ PiHomeSecuritySystem is an advanced Raspberry Pi-based security system that leve
 - `gpiozero` and `picamera` for interfacing with the hardware
 - `yagmail` for sending emails
 
+## Human Detection from Image
+[Kaggle Dataset URL](https://www.kaggle.com/datasets/constantinwerner/human-detection-dataset)
+
 ## Setup
 1. **Install Dependencies**:
  ```bash
