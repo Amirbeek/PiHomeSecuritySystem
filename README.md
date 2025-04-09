@@ -1,7 +1,7 @@
 # PiHomeSecuritySystem
 
 ## Overview
-PiHomeSecuritySystem is an advanced Raspberry Pi-based security system that leverages real-time motion detection, live video streaming, and immediate email alerts to provide robust home surveillance. This system is accessible via a web interface, allowing users to monitor their home remotely.
+PiHomeSecuritySystem is an advanced Raspberry Pi-based security system that leverages real-time motion detection, live video streaming, and immediate email alerts to provide robust home surveillance. This system is accessible via a web interface, allowing users to monitor their home remotely.And Machine Learning implemented, the model is Human detection from taken image
 
 ## Features
 - **Real-Time Motion Detection**: Uses the HC-SR505 motion sensor to detect movement.
